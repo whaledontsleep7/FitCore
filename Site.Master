@@ -1,0 +1,65 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="FitCore.SiteMaster" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070E24" />
+    <title><%: Page.Title %> - FitCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <a class="skip" href="#main">Skip to content</a>
+        <div class="progress" id="progress" aria-hidden="true"></div>
+        <header class="site-header">
+            <div class="wrap nav">
+                <a class="brand" href="<%= ResolveUrl("~/Default.aspx") %>" aria-label="FitCore home">
+                    <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                        <rect width="32" height="32" rx="9" fill="#2B62F0" />
+                        <polyline points="4,17 10,17 13,8 19,25 22,14 24,17 28,17" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="brand-name">Fit<b>Core</b></span>
+                </a>
+                <nav class="links" aria-label="Main">
+                    <a class="<%= NavClass("Default") %>" href="<%= ResolveUrl("~/Default.aspx") %>">Home</a>
+                    <a class="<%= NavClass("Services") %>" href="<%= ResolveUrl("~/Services.aspx") %>">Services</a>
+                    <a class="<%= NavClass("Payments") %>" href="<%= ResolveUrl("~/Payments.aspx") %>">Payments</a>
+                    <a class="<%= NavClass("About") %>" href="<%= ResolveUrl("~/About.aspx") %>">About</a>
+                </nav>
+                <div class="auth">
+                    <a class="login" href="<%= ResolveUrl("~/Login.aspx") %>">Log in</a>
+                    <a class="btn btn-blue" href="<%= ResolveUrl("~/Register.aspx") %>">Register</a>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </main>
+
+        <footer class="site-footer">
+            <div class="wrap foot">
+                <div>
+                    <strong class="foot-brand">FitCore</strong>
+                    <p>Expert training, wherever you are.</p>
+                </div>
+                <nav aria-label="Footer">
+                    <a href="<%= ResolveUrl("~/Services.aspx") %>">Services</a>
+                    <a href="<%= ResolveUrl("~/Payments.aspx") %>">Payments</a>
+                    <a href="<%= ResolveUrl("~/About.aspx") %>">About</a>
+                </nav>
+                <div>
+                    <a href="mailto:hello@fitcore-online.com">hello@fitcore-online.com</a>
+                    <p>+1 (555) 010-2030</p>
+                </div>
+            </div>
+            <div class="wrap fine">&copy; <%: DateTime.Now.Year %> FitCore</div>
+        </footer>
+    </form>
+    <script src="<%= ResolveUrl("~/Content/site.js") %>"></script>
+</body>
+</html>
